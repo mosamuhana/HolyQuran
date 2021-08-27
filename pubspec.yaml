@@ -1,0 +1,39 @@
+name: holy_quran
+description: Holy Quran App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.13.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.3
+  shimmer: ^2.0.0
+  http: ^0.13.3
+  share_plus: ^2.1.4
+  url_launcher: ^6.0.9
+  launch_review: ^3.0.1
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.2
+  path: ^1.8.0
+  archive: ^3.1.2
+  desktop_window: ^0.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: Sogeo
+      fonts:
+        - asset: assets/fonts/sui.ttf
+    - family: ShareIcon
+      fonts:
+        - asset: assets/fonts/ShareIcon.ttf

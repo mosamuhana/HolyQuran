@@ -1,0 +1,37 @@
+import 'dart:io';
+import 'dart:convert';
+
+import '../app-context.dart';
+
+class FileCache {
+  FileCache._();
+
+  static bool enabledCaching = true;
+
+  static Future<String> load(
+    String cacheFile, {
+    required Future<String> orElse(),
+    bool compressJson = false,
+  }) async {
+    if (enabledCaching) {
+      final filePath = _getFilePath(cacheFile);
+      final file = File(filePath);
+      final exists = await file.exists();
+      if (exists) return await file.readAsString();
+      final content = await orElse();
+      await _saveFile(file, content, compressJson: compressJson);
+      return content;
+    } else {
+      return await orElse();
+    }
+  }
+
+  static Future<void> _saveFile(File file, String content,
+      {bool compressJson = false}) async {
+    await file.writeAsString(
+      compressJson ? jsonEncode(jsonDecode(content)) : content,
+    );
+  }
+
+  static String _getFilePath(String fileName) => AppContext.getPath(fileName);
+}
