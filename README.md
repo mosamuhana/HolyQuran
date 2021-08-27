@@ -1,6 +1,12 @@
-# holy_quran
+# HolyQuran
 
-A new Flutter project.
+Holy Quran App
+
+# Download Release
+
+- [Windows EXE](release/windows/HolyQuran.zip)
+- [Android APK](release/android/HolyQuran.apk)
+
 
 ## Getting Started
 
